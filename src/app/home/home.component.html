@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row align-items-start">
+    <h1> <span class="text-success"> Home</span></h1>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea quis cum, perferendis voluptate expedita, voluptates,
+    saepe fugit possimus a deserunt suscipit voluptas. Sunt, molestias. Nostrum itaque, reprehenderit reiciendis ab id
+    pariatur praesentium fugit quisquam inventore debitis, ipsum minus eveniet enim rerum ducimus nesciunt veritatis
+    laborum. Praesentium sit deserunt reprehenderit laborum eos, temporibus, error consectetur eligendi quod vitae unde.
+    Nulla, aspernatur.
+  </div>
+</div>
+{{xyz}}
+
+<input type="text" [value]='myName'>
+<button (click)="onChangeMyName()">On Change </button>
+<!-- {{myMethod()}} -->
+<!-- <div class="border border-dark">
+  <ul class="flex-container">
+    <li class="flex-item b1">1</li>
+    <li class="flex-item b2">2</li>
+    <li class="flex-item b3">3</li>
+  </ul>
+</div> -->
+<div>{{getDataWithChild}}</div>
+<app-home-child1 [getEmployeeList]="listOfEmployee" (passData)="getDataParentToChild($event)"></app-home-child1>
+<app-home-child2></app-home-child2>

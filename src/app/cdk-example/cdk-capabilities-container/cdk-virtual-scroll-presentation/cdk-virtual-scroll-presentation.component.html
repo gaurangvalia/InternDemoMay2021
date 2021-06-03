@@ -1,0 +1,9 @@
+
+
+<!-- <div class="viewport" style="overflow-y:auto">
+    <div *ngFor="let item of items">{{item}}</div>
+</div> -->
+
+<cdk-virtual-scroll-viewport itemSize="50" class="viewport">
+  <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
+</cdk-virtual-scroll-viewport>

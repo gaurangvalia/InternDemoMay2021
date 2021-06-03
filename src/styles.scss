@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white
+}
+
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/font-awesome/scss/font-awesome.scss';
+@import '~@angular/cdk/overlay-prebuilt.css';

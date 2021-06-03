@@ -1,0 +1,31 @@
+<!-- <div class="example-container">
+  <h2>Lists</h2>
+
+  <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}
+      <span class="courser-move">
+        <i class="fa fa-arrows" aria-hidden="true" cdkDragHandle></i>
+      </span>
+    </div>
+  </div>
+</div> -->
+
+<!-- --------------------- One List to other list ------------------------------------ -->
+<div class="example-container">
+	<h2>To do</h2>
+
+	<div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]" class="example-list"
+	 (cdkDropListDropped)="drop($event)">
+		<div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+	</div>
+</div>
+<br>
+<div class="example-container">
+	<h2>Done</h2>
+
+	<div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]" class="example-list"
+	 (cdkDropListDropped)="drop($event)">
+		<div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+	</div>
+</div>

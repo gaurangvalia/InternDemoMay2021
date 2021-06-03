@@ -1,0 +1,100 @@
+<div class="container-fluid">
+  <div class="col align-items-start">
+    <div class="col">
+      <h1> <span class="text-success"> Employee Details</span></h1>
+    </div>
+    <!-- <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <div class="col-md-4 mb-3">
+          <label for="validationServer01">employee Id</label>
+          <input type="text" class="form-control" id="employeeId" placeholder="employee id" name="id" formControlName="id">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="validationServer01">employee name</label>
+          <input type="text" class="form-control" id="name" placeholder="employee name" name="name" formControlName="name">
+            <span class="text-danger" *ngIf="!employeeForm.controls.name.valid && employeeForm.controls.name.touched">Invalid Employee Name</span>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="validationServer02">Salary</label>
+          <input type="text" class="form-control" id="validationServer02" placeholder="Salary" name="salary" formControlName="salary">
+        </div>
+        <div class="d-flex justify-content-between m-2">
+          <div>
+            <label for="">Employee Address</label>
+          </div>
+          <div>
+            <button type="button" class="btn btn-primary">Add New Address</button>
+          </div>
+        </div>
+        <div class="form-row border border-primary" formGroupName="address">
+          <div class="col-md-4 mb-3">
+            <label for="validationCustom03">City</label>
+            <input type="text" class="form-control" id="validationCustom03" placeholder="City" formControlName="city">
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationCustom04">State</label>
+            <input type="text" class="form-control" id="validationCustom04" placeholder="State" formControlName="state">
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationCustom05">Zip</label>
+            <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" formControlName="zip">
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-success" type="submit">Add Employee</button>
+    </form> -->
+
+    <!-- For this form is used for the formArray -->
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <div class="col-md-4 mb-3">
+          <label for="validationServer01">employee Id</label>
+          <input type="text" class="form-control" id="employeeId" placeholder="employee id" name="id"
+            formControlName="id" >
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="validationServer01">employee name</label>
+          <input type="text" class="form-control" id="name" placeholder="employee name" name="name"
+            formControlName="name">
+          <span class="text-danger"
+            *ngIf="!employeeForm.controls.name.valid && employeeForm.controls.name.touched">Invalid Employee Name</span>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="validationServer02">Salary</label>
+          <input type="text" class="form-control" id="validationServer02" placeholder="Salary" name="salary"
+            formControlName="salary">
+        </div>
+        <div class="d-flex justify-content-between m-2">
+          <div>
+            <label for="">Employee Address</label>
+          </div>
+          <div>
+            <button type="button" class="btn btn-primary" (click)="addAddress()">Add New Address</button>
+          </div>
+        </div>
+        <div class="form-row border border-primary" formArrayName="address" >
+          <ng-container *ngFor="let addressGroup of employeeForm.value.address; let addressIndex = index"
+            [formGroupName]="addressIndex">
+            <div class="col-md-4 mb-3">
+              <label for="validationCustom03">City</label>
+              <input type="text" class="form-control" id="validationCustom03" placeholder="City" formControlName="city">
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="validationCustom04">State</label>
+              <input type="text" class="form-control" id="validationCustom04" placeholder="State"
+                formControlName="state">
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="validationCustom05">Zip</label>
+              <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" formControlName="zip">
+            </div>
+            <div class="col-md-2 mb-3 mt-4" *ngIf="employeeForm.value.address.length > 1">
+              <button class="btn btn-danger" (click)="deleteAddress(addressIndex)">delete</button>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <button class="btn btn-success" type="submit" [disabled]="!employeeForm.valid">Add Employee</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<button type="button" class="btn btn-outline-info" routerLink="add">
+  <span class="fa fa-plus"> Add Product</span>
+</button>
+<table class="table table-stripede border border-secondary ">
+  <thead class="thead-light">
+    <th>Name</th>
+    <th>Prices</th>
+    <th class="text-center">Action</th>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let product of productList">
+      <td>{{product.name}}</td>
+      <td>{{product.price}}</td>
+      <td class="text-center">
+        <!-- <button class="btn btn-outline-primary m-1" data-toggle="tooltip" data-placement="right" title="Edit" [routerLink]="['/product/edit/']+customer.id">
+          edit
+        </button> -->
+
+        <button class="btn btn-outline-danger m-1" data-toggle="tooltip" data-placement="right" title="Delete">
+          delete
+        </button>
+        <!-- (click)="deleteCustomer(customer.id)" -->
+      </td>
+    </tr>
+
+  </tbody>
+</table>

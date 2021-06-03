@@ -1,0 +1,27 @@
+{
+    "resorces":[
+        {
+            "id":1,
+            "name":"laptop",
+            "price":42000
+        },
+        {
+            "id":2,
+            "name":"Camera",
+            "price":60000
+        },
+        {
+            "id":3,
+            "name":"Server",
+            "price":150000
+        }
+    ],
+
+
+    "employee":[
+        {
+            "id":1,
+            "name":"gaurang"
+        }
+    ]
+}
