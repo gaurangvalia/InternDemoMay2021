@@ -1,2 +1,10 @@
 <div>------------------------------------</div>
 <p>home-child2 works!</p>
+
+<div>
+    <ul *ngFor="let item of customerList">
+        <li>{{item.name}}</li>
+    </ul>
+</div>
+
+<button (click)="onClick()">On Change</button>

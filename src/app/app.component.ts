@@ -11,9 +11,19 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'internDemo';
+  // let listOfMenu = [
+  //   {
+  //     linkUrl:"about-us",
+  //     id:1,
+  //     permiss:[
+  //       'admin',
+  //     ]
+  //   }
+  // ]
   constructor(
     private router: Router
   ){}
+  
   public onClick(): void {
     this.router.navigate(['about-us']);
   }

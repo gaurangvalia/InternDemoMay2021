@@ -19,6 +19,7 @@ export class EmployeeComponent implements OnInit {
   // }
 
   public employeeForm: FormGroup;
+  public address:FormArray[]=[];
   constructor(
     private formBuilder: FormBuilder
   ) {
@@ -26,19 +27,19 @@ export class EmployeeComponent implements OnInit {
     // this.employeeForm.patchValue(this.employeeDetails)
 
     // ----------------------- Formgroup and formControle (simple)-------------------------
-    // this.employeeForm = new FormGroup({
-    //   id: new FormControl(1, Validators.required),
-    //   name: new FormControl('Gaurang', [Validators.required, Validators.pattern('[A-Za-z]{1,32}')]),
-    //   salary: new FormControl(null, Validators.required),
-    //   address: new FormArray(
-    //     [   new FormGroup({
-    //         city: new FormControl(null, Validators.required),
-    //         state: new FormControl(null, Validators.required),
-    //         zip: new FormControl(null, Validators.required)
-    //       })
-    //     ]
-    //   )
-    // })
+    this.employeeForm = new FormGroup({
+      id: new FormControl('', Validators.required),
+      name: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z]{1,32}')]),
+      salary: new FormControl(null, Validators.required),
+      address: this.formBuilder.array(
+        [   new FormGroup({
+            city: new FormControl(null, Validators.required),
+            state: new FormControl(null, Validators.required),
+            zip: new FormControl(null, Validators.required)
+          })
+        ]
+      )
+    })
     //------------------- Formgroup inside formgroup ---------------------------
     // this.employeeForm = new FormGroup({
     //   id: new FormControl(null, Validators.required),
@@ -64,16 +65,19 @@ export class EmployeeComponent implements OnInit {
     // })
 
     // ----------------------- Formgroup and FormArray with formBuilder(simple)-------------------------
-    this.employeeForm = this.formBuilder.group({
-      id: [null, Validators.required],
-      name: ['', [Validators.required, Validators.pattern('[A-Za-z]{1,32}')]],
-      salary: ['', Validators.required],
-      address: this.formBuilder.array([
-        this.addressFormGroup()
-      ])
-    })
+    // this.employeeForm = this.formBuilder.group({
+    //   id: [null, Validators.required],
+    //   name: ['', [Validators.required, Validators.pattern('[A-Za-z]{1,32}')]],
+    //   salary: ['', Validators.required],
+    //   address: this.formBuilder.array([
+    //     this.addressFormGroup()
+    //   ])
+    // })
   }
-
+  get employeeAddress () {
+    return this.employeeForm.get('address') as FormArray
+  }
+  
   public addressFormGroup(): FormGroup {
     return this.formBuilder.group({
       city: ['', Validators.required],

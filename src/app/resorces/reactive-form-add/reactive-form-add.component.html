@@ -1,0 +1,32 @@
+<form [formGroup]="resorce" (ngSubmit)="submit(resorce.value)">
+	<div class="mb-3">
+		<label for="exampleInputEmail1" class="form-label">Name</label>
+		<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="name">
+        <span *ngIf="resorce.controls.name.touched && !resorce.controls.name.valid">This field is required</span>
+	</div>
+	<div class="mb-3">
+		<label for="exampleInputPassword1" class="form-label">price</label>
+		<input type="text" class="form-control" id="exampleInputPassword1" formControlName="price">
+	</div>
+	<div formArrayName="address">
+        <button (click)="addAddressGroup()">Add New Address</button>
+        <div for="exampleInputPassword1" class="form-label">Address</div>
+        {{resorce.value.address | json}}
+        <ng-container *ngFor="let item of resorce.value.address; let i=index" [formGroupName]="i">
+        <!-- <ng-container *ngFor="let item of resorce.value.get('address')['controls']; let i=index" [formGroupName]="i"> -->
+            <div class="my">
+                <div class="mb-3">
+                    {{item.line1}}
+                    <label for="exampleInputPassword1" class="form-label">line1</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" formControlName="line1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">line2</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" formControlName="line2">
+                </div>
+                <button (click)="removeItem(i)">Delete</button>
+            </div>
+        </ng-container>
+	</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>

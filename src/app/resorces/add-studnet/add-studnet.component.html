@@ -1,0 +1,36 @@
+<form [formGroup]="studentFormGroup">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="name">
+    <span *ngIf="studentFormGroup.controls.name.touched && !studentFormGroup.controls.name.valid">This field is
+      required</span>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Age</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" formControlName="age">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Address</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" formControlName="address">
+  </div>
+  <div formArrayName="skills">
+    <button (click)="addSkillsGroup()">Add Skill</button>
+    <div for="exampleInputPassword1" class="form-label">Address</div>
+    {{studentFormGroup.value.address | json}}
+    <ng-container *ngFor="let item of studentFormGroup.value.skills; let i=index" [formGroupName]="i">
+      <!-- <ng-container *ngFor="let item of studentFormGroup.value.get('address')['controls']; let i=index" [formGroupName]="i"> -->
+      <div class="my">
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">title</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" formControlName="title">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">cartification</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" formControlName="cartification">
+        </div>
+        <button (click)="removeItem(i)">Delete</button>
+      </div>
+    </ng-container>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="submit(studentFormGroup.value)">Submit</button>
+</form>

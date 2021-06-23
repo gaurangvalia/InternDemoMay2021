@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="align-items-start">
+      {{getStudent|json}}
+      <div *ngFor="let item of getStudent">
+          <p>{{item.name}}</p>
+      </div>
+      <h1> <span class="text-success">Add Resources</span></h1>
+      <div>
+        <form FormGroup='resorceForm' (ngSubmit)="onSubmit()" >
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="email" class="form-control" id="name" name="name" [(ngModel)]="resorceForm.name" required>
+          </div>
+          <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="text" class="form-control" id="price" name="price" [(ngModel)]="resorceForm.price" required pattern="^\d$" #price="ngModel">  
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- <span *ngIf="!price.required && price.touched">
+              Field required
+            </span>
+            <span *ngIf="!price.value.pattern && price.touched">
+              Only used number
+            </span> -->
+<!-- 
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+    <div ngModelGroup="name" #nameCtrl="ngModelGroup">
+      <input name="first" [ngModel]="name.first" minlength="2">
+      <input name="last" [ngModel]="name.last" required #last="ngModel" pattern="^\d$">
+      <p *ngIf="last.value.required">last Name is invalid.</p>
+      <p *ngIf="last.value.pattern">last Name is invalid.</p>
+      <p *ngIf="last.value.minlength">last Name is invalid.</p> // 
+      <p *ngIf="last.value.maxlength">last Name is invalid.</p>
+    </div>
+
+    <input name="email" ngModel>
+    <button>Submit</button>
+  </form>
+
+  <button (click)="setValue()">Set value</button> -->

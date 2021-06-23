@@ -3,17 +3,11 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } fro
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class TestGuard implements CanActivate {
+export class TestDataGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      
-    let name = "abc";
-    if(name === "ankit"){
-      return true;
-    }else{
-      return false
-    }
+    return true;
   }
   
 }

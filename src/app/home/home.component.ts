@@ -10,6 +10,21 @@ export class HomeComponent implements OnInit {
   myName = "gaurang"
   getDataWithChild:any;
   listOfEmployee = ['abc','xyz','pqr']
+
+  customerDetail = [
+    {
+      name:"abc",
+      age:25
+    },
+    {
+      name:"abcd",
+      age:25
+    },
+    {
+      name:"abcdfds",
+      age:25
+    }
+  ]
   constructor() { }
 
   ngOnInit(): void {
@@ -24,4 +39,10 @@ export class HomeComponent implements OnInit {
   getDataParentToChild = (val:any) => {
     this.getDataWithChild = val
   }
+
+  onGetDataInChild(value:any){
+    console.log(value);
+    
+  }
+
 }

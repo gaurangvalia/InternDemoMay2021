@@ -73,20 +73,20 @@
           </div>
         </div>
         <div class="form-row border border-primary" formArrayName="address" >
-          <ng-container *ngFor="let addressGroup of employeeForm.value.address; let addressIndex = index"
+          <ng-container *ngFor="let addressGroup of employeeAddress.controls; let addressIndex = index"
             [formGroupName]="addressIndex">
             <div class="col-md-4 mb-3">
               <label for="validationCustom03">City</label>
-              <input type="text" class="form-control" id="validationCustom03" placeholder="City" formControlName="city">
+              <input type="text" class="form-control" id="validationCustom03" name="city" placeholder="City" formControlName="city">
             </div>
             <div class="col-md-3 mb-3">
               <label for="validationCustom04">State</label>
-              <input type="text" class="form-control" id="validationCustom04" placeholder="State"
+              <input type="text" class="form-control" id="validationCustom04"  name="state" placeholder="State"
                 formControlName="state">
             </div>
             <div class="col-md-3 mb-3">
               <label for="validationCustom05">Zip</label>
-              <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" formControlName="zip">
+              <input type="text" class="form-control" id="validationCustom05"  name="zip" placeholder="Zip" formControlName="zip">
             </div>
             <div class="col-md-2 mb-3 mt-4" *ngIf="employeeForm.value.address.length > 1">
               <button class="btn btn-danger" (click)="deleteAddress(addressIndex)">delete</button>

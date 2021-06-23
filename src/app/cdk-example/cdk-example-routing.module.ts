@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TestChildGuard } from '../guard/test-child.guard';
 import { CdkCapabilitiesContainerComponent } from './cdk-capabilities-container/cdk-capabilities.container';import { CdkDragAndDropPresentationComponent } from './cdk-capabilities-container/cdk-drag-and-drop-presentation/cdk-drag-and-drop.presentation';
 import { CdkLayoutPresentationComponent } from './cdk-capabilities-container/cdk-layout-presentation/cdk-layout-presentation.component';
 import { CdkOverlayPresentationComponent } from './cdk-capabilities-container/cdk-overlay-presentation/cdk-overlay.presentation';
@@ -18,6 +19,7 @@ const routes: Routes = [
       {
         path: 'cdk-capablilities',
         component: CdkCapabilitiesContainerComponent,
+        canActivateChild:[TestChildGuard],
         children:[
           {
             path:'overlay',

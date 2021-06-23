@@ -1,0 +1,73 @@
+<!-- <p>customer-list-presetation works!</p> -->
+<!-- Enter your name <input type="text" [(ngModel)]="myName">{{myName}} -->
+
+<button class="btn btn-outline-primary m-1" data-toggle="tooltip" data-placement="right" title="add"
+  routerLink='../add'>
+  <i class="fa fa-plus" aria-hidden="true"></i>
+  Add Resource
+</button>
+<button class="btn btn-outline-primary m-1" data-toggle="tooltip" data-placement="right" title="add"
+  routerLink='../reactive-form-add'>
+  <i class="fa fa-plus" aria-hidden="true"></i>
+  Add Resource reactive form
+</button>
+<button class="btn btn-outline-primary m-1" data-toggle="tooltip" data-placement="right" title="add"
+  routerLink='../student-add'>
+  <i class="fa fa-plus" aria-hidden="true"></i>
+  Add new studnet
+</button>
+
+<table class="table table-stripede border border-secondary ">
+  <thead class="thead-light">
+    <th>Name</th>
+    <th>Age</th>
+    <th>Address</th>
+    <th>skill</th>
+    <th class="text-center">Action</th>
+  </thead>
+  <tbody>
+    <!-- <tr *ngFor="let resourcesListItem of resourcesList">
+			<td>{{resourcesListItem.name}}</td>
+			<td>{{resourcesListItem.price}}</td>
+			<td class="text-center">
+
+				<button class="btn btn-outline-success m-1" data-toggle="tooltip" data-placement="right" title="Edit"
+					[routerLink]="['../edit/',resourcesListItem.id]">
+					Edit
+				</button>
+
+				<button class="btn btn-outline-danger m-1" data-toggle="tooltip" data-placement="right" title="Delete"
+					(click)="deleteStu(1)">
+					Delete
+				</button>
+
+			</td>
+		</tr> -->
+    <!-- <button class="btn btn-outline-primary m-1" data-toggle="tooltip" data-placement="right" title="Edit" [routerLink]="['/product/edit/']+customer.id"> -->
+    <tr *ngFor="let studentListItem of studentList">
+      <td>{{studentListItem.name}}</td>
+      <td>{{studentListItem.age}}</td>
+      <td>{{studentListItem.address}}</td>
+      <td>
+        <ng-container *ngFor="let skillItem of studentListItem.skills">
+          {{skillItem.title}},
+        </ng-container>
+      </td>
+
+      <td class="text-center">
+        <!-- <button class="btn btn-outline-primary m-1" data-toggle="tooltip" data-placement="right" title="Edit" [routerLink]="['/product/edit/']+customer.id"> -->
+        <button class="btn btn-outline-success m-1" data-toggle="tooltip" data-placement="right" title="Edit"
+          [routerLink]="['../student-edit/',studentListItem.id]">
+          Edit
+        </button>
+
+        <button class="btn btn-outline-danger m-1" data-toggle="tooltip" data-placement="right" title="Delete"
+          (click)="deleteStu(1)">
+          Delete
+        </button>
+
+      </td>
+    </tr>
+
+  </tbody>
+</table>

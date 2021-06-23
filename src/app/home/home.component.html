@@ -22,4 +22,4 @@
 </div> -->
 <div>{{getDataWithChild}}</div>
 <app-home-child1 [getEmployeeList]="listOfEmployee" (passData)="getDataParentToChild($event)"></app-home-child1>
-<app-home-child2></app-home-child2>
+<app-home-child2 [customerList]="customerDetail" (passDataToP)="onGetDataInChild($event)"></app-home-child2>
