@@ -14,6 +14,7 @@ import { AddComponent } from './resorces/add/add.component';
 import { EditComponent } from './resorces/edit/edit.component';
 import { ReactiveFormAddComponent } from './resorces/reactive-form-add/reactive-form-add.component';
 import { AddStudnetComponent } from './resorces/add-studnet/add-studnet.component';
+import { RxjsOparatorsComponent } from './rxjs-oparators/rxjs-oparators.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'test',
     component: TestComponent
+  },
+  {
+    path: 'rxjs-oparator',
+    component: RxjsOparatorsComponent
   },
   {
     path: 'about-us',

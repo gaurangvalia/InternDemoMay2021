@@ -26,6 +26,10 @@ import { ResorcesService } from './resorces/resorces.service';
 import { ReactiveFormAddComponent } from './resorces/reactive-form-add/reactive-form-add.component';
 import { XyzService } from './resorces/xyz.service';
 import { AddStudnetComponent } from './resorces/add-studnet/add-studnet.component';
+import { RxjsOparatorsComponent } from './rxjs-oparators/rxjs-oparators.component';
+import { SwitchMapComponent } from './rxjs-oparators/switch-map/switch-map.component';
+import { ConcatMapComponent } from './rxjs-oparators/concat-map/concat-map.component';
+import { CombineLatestComponent } from './rxjs-oparators/combine-latest/combine-latest.component';
 
 
 @NgModule({
@@ -43,7 +47,11 @@ import { AddStudnetComponent } from './resorces/add-studnet/add-studnet.componen
     AddComponent,
     EditComponent,
     ReactiveFormAddComponent,
-    AddStudnetComponent
+    AddStudnetComponent,
+    RxjsOparatorsComponent,
+    SwitchMapComponent,
+    ConcatMapComponent,
+    CombineLatestComponent
   ],
   imports: [
     BrowserModule,
